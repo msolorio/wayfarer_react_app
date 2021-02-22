@@ -7,13 +7,14 @@ function Header() {
 
       <nav>
         <ul>
-          <li><Link>Home</Link></li>
-          <li><Link>Login</Link></li>
-          <li><Link>Signup</Link></li>
-          <li><Link></Link></li>
-          <li><Link></Link></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/signup">Signup</Link></li>
+          <li><Link to="/cities">Explore</Link></li>
         </ul>
       </nav>
     </header>
   )
 }
+
+export default Header;

@@ -13,6 +13,7 @@ const routes = (
   <>
     <Switch>
       <Route exact path="/" component={HomePage} />
+      <Route exact path="/cities" component={CityShowPage} />
       <Route path="/cities/:cityId" component={CityShowPage} />
       <Route exact path="/posts/:postId" component={PostShowPage} />
       <Route path="/posts/:postId/edit" component={PostEditPage} />
