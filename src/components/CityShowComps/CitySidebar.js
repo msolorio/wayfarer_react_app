@@ -4,11 +4,12 @@ import SidebarCard from './SidebarCard';
 function CitySidebar(props) {
   function renderCityCards(cities) {
     return cities.map((city, index) => {
+
       return (
-        <Link to={`/cities/${index}`}>
+        <Link key={city._id} to={`/cities/${city._id}`}>
           <SidebarCard
             index={index}
-            cityName={city.cityName}
+            cityName={city.name}
             updateSelectedCityIdx={props.updateSelectedCityIdx}
           />
         </Link>
