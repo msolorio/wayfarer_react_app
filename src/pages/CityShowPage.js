@@ -9,12 +9,11 @@ class CityShowPage extends React.Component {
     cities: []
   }
 
-  componentDidMount() {
-    fetch('http://localhost:4000/cities')
-      .then((response) => response.json())
-      .then((cities) => {
-        this.setState({ cities: cities });
-      });
+  async componentDidMount() {
+    const response = await fetch('http://localhost:4000/cities');
+    const citiesData = await response.json();
+    
+    this.setState({ cities: citiesData });
   }
 
   updateSelectedCityIdx = (cityIdx) => {
