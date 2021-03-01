@@ -2,7 +2,6 @@ import React from 'react';
 import CitySidebar from '../components/CityShowComps/CitySidebar';
 import CityDetail from '../components/CityShowComps/CityDetail';
 import CityPosts from '../components/CityShowComps/CityPosts';
-import { cities } from '../dummyData';
 import './CityShowPage.css';
 
 class CityShowPage extends React.Component {
@@ -10,10 +9,11 @@ class CityShowPage extends React.Component {
     cities: []
   }
 
-  componentDidMount() {
-    console.log('called componentDidMount');
-
-    this.setState({ cities: cities });
+  async componentDidMount() {
+    const response = await fetch('http://localhost:4000/cities');
+    const citiesData = await response.json();
+    
+    this.setState({ cities: citiesData });
   }
 
   updateSelectedCityIdx = (cityIdx) => {
@@ -21,7 +21,9 @@ class CityShowPage extends React.Component {
   }
 
   render() {
-    const activeCity = this.state.cities[this.props.match.params.cityId];
+    const activeCity = this.state.cities.find((city) => {
+      return city._id === this.props.match.params.cityId;
+    });
 
     return (
       <div className="cityShow">
