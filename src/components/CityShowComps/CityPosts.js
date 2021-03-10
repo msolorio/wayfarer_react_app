@@ -5,7 +5,7 @@ class CityPosts extends React.Component {
   state = { redirect: false }
 
   renderPosts() {
-    return this.props.cityPosts.map((post) => {
+    return this.props.city.posts.map((post) => {
       return (
         <Link to={`/posts/${post._id}`} key={post._id}>
           <article>
@@ -30,7 +30,7 @@ class CityPosts extends React.Component {
     return (
       <div>
       <button onClick={this.handleButtonClick}>Add Post</button>
-        {this.renderPosts()}
+        {this.props.city && this.renderPosts()}
       </div>
     );
   }

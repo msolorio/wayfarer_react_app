@@ -26,7 +26,7 @@ function CityShowPage(props) {
       </div>
       <div className="cityShow-rightCol">
         <CityDetail city={activeCity} />
-        <CityPosts cityPosts={activeCity ? activeCity.posts : []} />
+        <CityPosts city={activeCity} />
       </div>
     </div>
   );
