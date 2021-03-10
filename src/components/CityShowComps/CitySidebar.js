@@ -10,7 +10,6 @@ function CitySidebar(props) {
           <SidebarCard
             index={index}
             cityName={city.name}
-            updateSelectedCityIdx={props.updateSelectedCityIdx}
           />
         </Link>
       );

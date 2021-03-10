@@ -1,10 +1,6 @@
 function CityShowSidebarCard(props) {
-  function handleCardClick() {
-    props.updateSelectedCityIdx(props.index);
-  }
-
   return (
-    <li onClick={handleCardClick}>
+    <li>
       <img src={props.imageUrl} alt=""/>
       <p>{props.cityName}</p>
     </li>
