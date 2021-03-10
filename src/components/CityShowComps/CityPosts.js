@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
-class CityPosts extends React.Component {
-  state = { redirect: false }
+function CityPosts(props) {
+  const [redirect, setRedirect] = useState(false);
 
-  renderPosts() {
-    return this.props.city.posts.map((post) => {
+  function renderPosts() {
+    return props.city.posts.map((post) => {
       return (
         <Link to={`/posts/${post._id}`} key={post._id}>
           <article>
@@ -18,22 +18,16 @@ class CityPosts extends React.Component {
     });
   }
 
-  handleButtonClick = () => {
-    this.setState({ redirect: true });
-  }
+  const handleButtonClick = () => setRedirect(true);
 
-  render() {
-    if (this.state.redirect) {
-      return <Redirect to="/posts/new" />;
-    }
+  if (redirect) return <Redirect to="/posts/new" />;
 
-    return (
-      <div>
-      <button onClick={this.handleButtonClick}>Add Post</button>
-        {this.props.city && this.renderPosts()}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button onClick={handleButtonClick}>Add Post</button>
+      {props.city && renderPosts()}
+    </div>
+  );
 }
 
 export default CityPosts;
