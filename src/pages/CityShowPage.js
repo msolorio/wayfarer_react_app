@@ -13,7 +13,7 @@ function CityShowPage(props) {
       .then((cities) => {
         setCities(cities);
       });
-  })
+  }, [])
 
   const activeCity = cities.find((city) => {
     return city._id === props.match.params.cityId;
