@@ -15,9 +15,9 @@ function PostShowPage(props) {
     if (post.city) {
       return (
         <>
-          <p>{post.city.name}</p>
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
+          <p>{post.city.cityName}</p>
+          <h2>{post.postTitle}</h2>
+          <p>{post.postBody}</p>
         </>
       );
     }

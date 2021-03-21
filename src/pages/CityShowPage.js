@@ -1,35 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CitySidebar from '../components/CityShowComps/CitySidebar';
 import CityDetail from '../components/CityShowComps/CityDetail';
 import CityPosts from '../components/CityShowComps/CityPosts';
 import './CityShowPage.css';
 
-function CityShowPage(props) {
-  const [cities, setCities] = useState([]);
+class CityShowPage extends React.Component {
+  state = {
+    cities: []
+  }
 
-  useEffect(() => {
+  componentDidMount() {
     fetch('http://localhost:4000/cities')
       .then((response) => response.json())
-      .then((cities) => {
-        setCities(cities);
+      .then((citiesData) => {
+        this.setState({ cities: citiesData })
       });
-  }, [])
+  }
 
-  const activeCity = cities.find((city) => {
-    return city._id === props.match.params.cityId;
-  });
+  
+  render() {
+    console.log('this.state', this.state);
 
-  return (
-    <div className="cityShow">
-      <div className="cityShow-leftCol">
-        <CitySidebar cities={cities} />
+    const activeCity = this.state.cities.find((city) => {
+      return city._id === this.props.match.params.cityId;
+    });
+
+    return (
+      <div className="cityShow">
+        <div className="cityShow-leftCol">
+          <CitySidebar cities={this.state.cities} />
+        </div>
+        <div className="cityShow-rightCol">
+          <CityDetail city={activeCity} />
+          <CityPosts city={activeCity} />
+        </div>
       </div>
-      <div className="cityShow-rightCol">
-        <CityDetail city={activeCity} />
-        <CityPosts city={activeCity} />
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default CityShowPage;

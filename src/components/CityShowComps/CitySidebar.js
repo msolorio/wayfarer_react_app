@@ -9,7 +9,7 @@ function CitySidebar(props) {
         <Link key={city._id} to={`/cities/${city._id}`}>
           <SidebarCard
             index={index}
-            cityName={city.name}
+            cityName={city.cityName}
           />
         </Link>
       );
