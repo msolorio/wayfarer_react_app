@@ -21,7 +21,9 @@ class CityPosts extends React.Component {
 
   
   render() {
-    if (this.state.redirect) return <Redirect to="/posts/new" />;
+    if (this.state.redirect && this.props.city) {
+      return <Redirect to={`/cities/${this.props.city._id}/posts/new`} />;
+    }
 
     return (
       <div>

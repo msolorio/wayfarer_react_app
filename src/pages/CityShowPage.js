@@ -16,11 +16,8 @@ class CityShowPage extends React.Component {
         this.setState({ cities: citiesData })
       });
   }
-
   
   render() {
-    console.log('this.state', this.state);
-
     const activeCity = this.state.cities.find((city) => {
       return city._id === this.props.match.params.cityId;
     });
@@ -31,12 +28,13 @@ class CityShowPage extends React.Component {
           <CitySidebar cities={this.state.cities} />
         </div>
         <div className="cityShow-rightCol">
-          <CityDetail city={activeCity} />
-          <CityPosts city={activeCity} />
+          {activeCity && <CityDetail city={activeCity} />}
+          {activeCity && <CityPosts city={activeCity} />}
         </div>
       </div>
     );
   }
 }
+
 
 export default CityShowPage;
