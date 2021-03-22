@@ -1,34 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
-function PostShowPage(props) {
-  const [post, setPost] = useState({});
-  const { postId } = useParams();
+class PostShowPage extends React.Component {
+  state = {
+    post: {}
+  }
 
-  useEffect(() => {
-    fetch(`http://localhost:4000/posts/${postId}`)
+  componentDidMount() {
+    fetch(`http://localhost:4000/posts/${this.props.match.params.postId}`)
       .then(response => response.json())
-      .then(data => setPost(data));
-  }, [postId]);
+      .then(data => this.setState({ post: data }));
+  }
 
-  function renderPostInfo() {
-    if (post.city) {
+  renderPostInfo() {
+    if (this.state.post.city) {
       return (
         <>
-          <p>{post.city.cityName}</p>
-          <h2>{post.postTitle}</h2>
-          <p>{post.postBody}</p>
+          <p>{this.state.post.city.cityName}</p>
+          <h2>{this.state.post.postTitle}</h2>
+          <p>{this.state.post.postBody}</p>
         </>
       );
     }
   }
 
-  return (
-    <main>
-      <h1>Post Show Page</h1>
-      {renderPostInfo()}
-    </main>
-  );
+  render() {
+    return (
+      <main>
+        <h1>Post Show Page</h1>
+        {this.renderPostInfo()}
+      </main>
+    );
+  }
 }
 
 export default PostShowPage;
