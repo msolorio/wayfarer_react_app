@@ -42,6 +42,10 @@ button {
   padding: 20px;
 }
 
+.navLink:hover {
+  color: orange;
+}
+
 
 /* CITY SHOW PAGE */
 .city-show-page {
@@ -127,3 +131,16 @@ button {
 .form-input-body {
   height: 200px;
 }
+/* SHOW POST PAGE **************************************** */
+.show-post-page {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.post-city-name,
+.post-title,
+.post-body {
+  margin-bottom: 10px;
+}
+

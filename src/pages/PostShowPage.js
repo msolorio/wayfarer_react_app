@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class PostShowPage extends React.Component {
   state = {
-    post: {}
+    post: {},
   }
 
   componentDidMount() {
@@ -15,9 +16,12 @@ class PostShowPage extends React.Component {
     if (this.state.post.city) {
       return (
         <>
-          <p>{this.state.post.city.cityName}</p>
-          <h2>{this.state.post.postTitle}</h2>
-          <p>{this.state.post.postBody}</p>
+          <h2 className="post-title">{this.state.post.postTitle}</h2>
+          <p className="post-body">{this.state.post.postBody}</p>
+
+          <Link className="form-return-button" to={`/cities/${this.state.post.city._id}`}>
+            <button>Back to {this.state.post.city.cityName}</button>
+          </Link>
         </>
       );
     }
@@ -25,9 +29,9 @@ class PostShowPage extends React.Component {
 
   render() {
     return (
-      <main>
-        <h1>Post Show Page</h1>
+      <main className="show-post-page">
         {this.renderPostInfo()}
+
       </main>
     );
   }
