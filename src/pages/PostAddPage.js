@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 class PostAddPage extends React.Component {
   state = {
@@ -67,10 +67,14 @@ class PostAddPage extends React.Component {
     if (this.state.redirect) return <Redirect to={`/cities/${this.props.match.params.cityId}`} />
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="post-title">Title:</label>
-          <input 
+      <form className="form" onSubmit={this.handleSubmit}>
+        <h2 className="form-header">
+          Add a Post for {this.state.cityName}
+        </h2>
+        <div className="form-group">
+          <label className="form-label" htmlFor="post-title">Title:</label>
+          <input
+            className="form-input" 
             type="text" 
             id="post-title" 
             value={this.state.postTitle} 
@@ -78,9 +82,10 @@ class PostAddPage extends React.Component {
           />
         </div>
 
-        <div>
-          <label htmlFor="post-body">Body:</label>
+        <div className="form-group">
+          <label className="form-label" htmlFor="post-body">Body:</label>
           <textarea
+            className="form-input form-input-body"
             type="text" 
             id="post-body" 
             value={this.state.postBody} 
@@ -88,9 +93,10 @@ class PostAddPage extends React.Component {
           />
         </div>
 
-        <div>
-          <label htmlFor="post-body">Post Image:</label>
+        <div className="form-group">
+          <label className="form-label" htmlFor="post-body">Post Image:</label>
           <input
+            className="form-input"
             type="text" 
             id="post-body" 
             value={this.state.postImg} 
@@ -99,6 +105,10 @@ class PostAddPage extends React.Component {
         </div>
 
         <button type="submit">Add Post</button>
+
+        <Link className="form-return-button" to={`/cities/${this.props.match.params.cityId}`}>
+          <button>Back to {this.state.cityName}</button>
+        </Link>
       </form>
     )
   }

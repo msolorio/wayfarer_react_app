@@ -1,6 +1,6 @@
 function CityShowSidebarCard(props) {
   return (
-    <li>
+    <li className="sidebar-card">
       <img src={props.imageUrl} alt=""/>
       <p>{props.cityName}</p>
     </li>

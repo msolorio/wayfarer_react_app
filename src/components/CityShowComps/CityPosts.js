@@ -8,8 +8,8 @@ class CityPosts extends React.Component {
     return this.props.city.posts.map((post) => {
       return (
         <Link to={`/posts/${post._id}`} key={post._id}>
-          <article>
-            <h2>{post.postTitle}</h2>
+          <article className="post">
+            <h4>{post.postTitle}</h4>
             <p>{post.postBody}</p>
           </article>
         </Link>
@@ -26,10 +26,10 @@ class CityPosts extends React.Component {
     }
 
     return (
-      <div>
-        <button onClick={this.handleButtonClick}>Add Post</button>
+      <section className="posts-section">
+        <button className="add-post-button" onClick={this.handleButtonClick}>Add Post</button>
         {this.props.city && this.renderPosts()}
-      </div>
+      </section>
     );
   }
 }

@@ -23,14 +23,14 @@ class CityShowPage extends React.Component {
     });
 
     return (
-      <div className="cityShow">
-        <div className="cityShow-leftCol">
+      <div className="city-show-page">
+        <div className="sidebar">
           <CitySidebar cities={this.state.cities} />
         </div>
-        <div className="cityShow-rightCol">
+        <main className="city-info">
           {activeCity && <CityDetail city={activeCity} />}
           {activeCity && <CityPosts city={activeCity} />}
-        </div>
+        </main>
       </div>
     );
   }

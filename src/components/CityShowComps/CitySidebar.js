@@ -4,7 +4,6 @@ import SidebarCard from './SidebarCard';
 function CitySidebar(props) {
   function renderCityCards(cities) {
     return cities.map((city, index) => {
-
       return (
         <Link key={city._id} to={`/cities/${city._id}`}>
           <SidebarCard
@@ -18,7 +17,9 @@ function CitySidebar(props) {
 
   return (
     <aside>
-      {renderCityCards(props.cities)}
+      <ul>
+        {renderCityCards(props.cities)}
+      </ul>
     </aside>
   );
 }

@@ -1,4 +1,129 @@
-.container {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  /* display: block; */
+}
+
+a:visited {
+  color: inherit;
+}
+
+button {
+  padding: 6px 8px;
+  margin: 0 20px 20px 0;
+  cursor: pointer;
+}
+
+/* HEADER ************************************************* */
+.header {
+  border: 2px solid #aaa;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+}
+
+.navLink {
+  display: block;
+  padding: 20px;
+}
+
+
+/* CITY SHOW PAGE */
+.city-show-page {
+  display: flex;
+}
+
+/* SIDEBAR ************************************************* */
+.sidebar {
+  width: 20%;
+  border: 2px solid #aaa;
+}
+
+.sidebar-card {
+  display: flex;
+  padding: 20px;
+  border-bottom: 2px solid #aaa;
+}
+
+.sidebar-card:hover {
+  background: #efefef;
+}
+
+/* CITY INFO *********************************************** */
+.city-info {
+  border: 2px solid #aaa;
+  flex-grow: 1;
+}
+
+.city-detail {
+  border: 2px solid #aaa;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* POSTS SECTION ******************************************* */
+.posts-section {
+  border: 2px solid #aaa;
+  cursor: pointer;
+}
+
+.add-post-button {
+  margin: 15px;
+  padding: 7px 10px;
+}
+
+.post {
+  border-top: 2px solid #aaa;
+  padding: 18px;
+}
+
+.post:hover {
+  background: #efefef;
+}
+
+/* POST ADD PAGE ******************************************** */
+.form {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.form-header {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.form-label {
+  width: 100px;
+}
+
+.form-input {
+  width: 100%;
+  border-radius: 3px;
+  border: 2px solid #aaa;
+  padding: 5px;
+}
+
+.form-input-body {
+  height: 200px;
 }

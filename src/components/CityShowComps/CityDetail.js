@@ -1,9 +1,12 @@
 function CityDetail(props) {
   return (
-    <main>
-      <p>{props.city && props.city.cityName}</p>
+    <div className="city-detail">
+      <div>
+        <h2>{props.city && props.city.cityName}</h2>
+        <h4>{props.city && props.city.country}</h4>
+      </div>
       <img src={props.city && props.city.imgUrl} alt=""/>
-    </main>
+    </div>
   );
 };
 

@@ -2,15 +2,16 @@ import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <header>
-      <h1>Wayfarer</h1>
+    <header className="header">
+      <h1 className="header-title">Wayfarer</h1>
 
       <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/signup">Signup</Link></li>
-          <li><Link to="/cities">Explore</Link></li>
+        <ul className="navList">
+          <li><Link className="navLink" to="/">Home</Link></li>
+          {/* FOR AUTH LESSON */}
+          {/* <li className="navLink"><Link className="navLink" to="/login">Login</Link></li>
+          <li className="navLink"><Link className="navLink" to="/signup">Signup</Link></li> */}
+          <li><Link className="navLink" to="/cities">Explore</Link></li>
         </ul>
       </nav>
     </header>
